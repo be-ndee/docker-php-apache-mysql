@@ -1,0 +1,19 @@
+web:
+  build: .
+  links:
+    - db
+  ports:
+      - "80:80"
+  volumes:
+    - ./app:/app
+db:
+  image: mysql
+  ports:
+    - "3306:3306"
+  volumes:
+    - "data:/var/lib/mysql/"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: test
+    MYSQL_PASSWORD: test
+    MYSQL_DATABASE: test
